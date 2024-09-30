@@ -3,50 +3,52 @@
 
 int main(int argc, char *argv[])
 {
-    char tipologia[12];
-    double importo, mediaBevande, mediaRistorazioni, sommaBevande = 0, sommaRistorazione = 0;
+    char tipo[12];
+    int importo, mediaBevande, mediaRistorazioni, sommaBevande = 0, sommaRistorazione = 0;
     int bevande = 0, ristorazione = 0;
 
     do
     {
         do
         {
-            printf("Inserisci la tipologia: \n");
+            printf("inserisci tipo prodotto: ");
             scanf("%s", tipologia);
         } while (strcmp("esci", tipologia) != 0 && strcmp(tipologia, "bevande") != 0 && strcmp(tipologia, "ristorazione") != 0);
+        //strcmp confronta le due stringhe
 
         do
         {
-            printf("Inserisci l' importo: \n");
-            scanf("%f", &importo);
+            printf("importo: ");
+            scanf("%d", &importo);
         } while (importo <= 0);
 
-        if (strcmp(tipologia, "bevande") == 0)
+        if (strcmp(tipo, "bevande") == 0)
         {
             bevande++;
-            sommaBevande = sommaBevande + importo;
+            sommaBevande += importo;
         }
 
-        if (strcmp(tipologia, "ristorazione") == 0)
+        if (strcmp(tipo, "ristorazione") == 0)
         {
             ristorazione++;
-            sommaRistorazione = sommaRistorazione + importo;
+            sommaRistorazione += importo;
         }
 
-    } while (strcmp("esci", tipologia) != 0);
+    } while (strcmp("esci", tipo) != 0);
 
     if (ristorazione > bevande)
     {
-        printf("Sono state vendute più ristorazioni");
+        printf("ristorazioni > bevande");
     }
     else
     {
-        printf("Sono state vendute più bevande");
+        printf("bevande > ristoraizoni");
     }
 
     mediaBevande = sommaBevande / (double)bevande;
     mediaRistorazioni = sommaRistorazione / (double)ristorazione;
 
-    printf("La media delle bevande è: %f\n", mediaBevande);
-    printf("La media delle ristorazioni è: %f\n", mediaRistorazioni);
+    printf("media bevande: %d\n", mediaBevande);
+    printf("media ristorazione: %d\n", mediaRistorazioni);
+    return 0;
 }
