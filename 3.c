@@ -1,15 +1,17 @@
 #include <stdio.h>
+
 int main(int argc, char*argv[])
 {
-    int numero, cont=0;
+    int numero, cont=1;
     do
     {
-        printf("inserire numero 0 o maggiore di zero");
+        printf("inseriesci numero");
         scanf("%d", &numero);
     } while (numero < 0);
+    printf("i numeri dispari sono\n:");
     do
     {
-        printf("il numero vale:%d\n:", cont);
+        printf("%d", cont);
         cont += 2;
     } while (cont <= numero);
     return 0;

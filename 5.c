@@ -1,36 +1,19 @@
 #include <stdio.h>
-
-int main()
+int main(int argc, char*argv[])
 {
-    int a,b,c;
-    int contp=0, contd=0, contn=0;
-    int resto;
+    int N1,N2;
     do
     {
-        printf("inserire A");
-        scanf("%d", &a);
-        printf("inserire B");
-        scanf("%d", &b);
-        printf("inserire C");
-        scanf("%d", &c);
-        resto = a - b;
-        if(resto %2 == 0)
-        {
-            contp++;
-        }
-        if(resto %2 >= 1)
-        {
-            contd++;
-        }
-        if(resto == 0)
-        {
-            contn++;
-        }
-
-    } while (a+b >= c); //perché finché a+b >= c rimane a iterare il ciclo
-
-    printf("differenza nulla: %d\n", contn);
-    printf("differenza dispari: %d\n", contd);
-    printf("differenza pari: %d\n", contp);
+        printf("inserisci n1\n");
+        scanf("%d", &N1);
+        printf("inserisci n2\n");
+        scanf("%d", &N2);
+    } while (N1<0||N2<=N1);
+    while(N1<=N2) //no do while perché non deve iterare
+    //per forza una volta ma itera solo se rispetta la condizione
+    {
+        printf("%d\n", N1);
+        N1++;
+    }
     return 0;
 }
