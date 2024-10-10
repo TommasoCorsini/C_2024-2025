@@ -1,20 +1,33 @@
-#include<stdio.h>
-
+#include <stdio.h>
+#include <stdlib.h>
 int main(int argc, char*argv[])
-{
-    int numero, N;
-    do
+{   
+    if(argc != 3 /*numero di parametri (base e esponente)*/)
     {
-        printf("inserire numero");
-        scanf("%d", &numero);
-    } while (numero<=0);
-    
-    
-    do
+        printf("errore degli argomenti");
+        exit(0);
+    }
+    int base = atoi(argv[1]);
+    int esponente = atoi(argv[2]);
+    int risultato = 1;
+    if(base < 0 || esponente < 0)
     {
-        N++;
-        printf("%d", &N)
-    } while (N<numero);
-    
+        printf("inserire numeri positivi");
+        exit(0);
+    }
+    if(base == 0)
+    {
+        if(esponente == 0)
+        {
+            printf("elevato zero per sè stesso");
+            exit(0);
+        }
+        risultato = 1;
+    }
+    for (int i = 0; i < esponente; i++)
+    {
+        risultato = base * risultato;
+    }
+    printf("il risultato: %d ^ %d = %d\n", base, esponente, risultato);
     return 0;
 }
